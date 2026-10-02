@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#fff3ed">
+  <title>For You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <div class="decor decor-1">✦</div>
+    <div class="decor decor-2">♡</div>
+    <div class="decor decor-3">✿</div>
+
+    <section id="menuScreen" class="screen menu-screen">
+      <header class="top-menu">
+        <div class="top-stat">⭐ <span id="menuStars">0</span></div>
+        <div class="top-stat">🏅 Level <span id="menuLevel">1</span></div>
+        <button id="soundButton" aria-label="Включить или выключить звук" class="icon-button" type="button">🔊</button>
+      </header>
+
+      <div class="menu-center">
+        <div class="logo-flower">✿</div>
+        <h1 class="game-logo">For <span>You</span></h1>
+        <p class="subtitle">Маленькая кондитерская больших чудес</p>
+
+        <div class="hero-cake-wrapper">
+          <div class="floating-star star-left">✦</div>
+          <div class="floating-star star-right">♡</div>
+          <div class="cake-display hero-cake"></div>
+        </div>
+
+        <div class="menu-actions">
+          <button id="playButton" class="primary-button" type="button">▶ Играть</button>
+          <button id="freeButton" class="secondary-button" type="button">🎨 Свободный режим</button>
+
+          <div class="secondary-row">
+            <button id="shopButton" class="secondary-button" type="button">🏡 Магазин</button>
+            <button id="albumButton" class="secondary-button" type="button">📖 Альбом</button>
+          </div>
+
+          <div class="secondary-row">
+            <button id="howButton" class="secondary-button" type="button">♡ Как играть</button>
+            <button id="settingsButton" class="secondary-button" type="button">⚙ Настройки</button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="menu-footer">✦ Made with sweetness ✦</footer>
+    </section>
+
+    <section id="gameScreen" class="screen game-screen hidden">
+      <header class="game-header">
+        <button id="backButton" aria-label="В главное меню" class="icon-button big" type="button">←</button>
+
+        <div class="level-progress">
+          <div class="level-row">
+            <span>Level <b id="gameLevel">1</b></span>
+            <span><b id="levelOrders">0</b>/5</span>
+          </div>
+          <div class="progress-track">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="header-stats">
+          <div class="top-stat">⭐ <span id="gameStars">0</span></div>
+          <div class="top-stat">🔥 <span id="streak">0</span></div>
+          <button id="gameSettingsButton" aria-label="Настройки" class="icon-button" type="button">⚙</button>
+        </div>
+      </header>
+
+      <div class="game-layout">
+        <aside class="panel customer-panel">
+          <div class="panel-title">● Заказ клиента</div>
+          <div id="customerAvatar" class="customer-avatar">👩🏻</div>
+          <h2 id="customerName">Лили</h2>
+          <p aria-live="polite" id="customerMessage" class="customer-message">Я уже предвкушаю!</p>
+
+          <div class="order-card">
+            <div class="order-title">МОЙ ТОРТ ♡</div>
+            <div id="orderCakeMini" class="mini-cake"></div>
+            <div id="orderTags" class="order-tags"></div>
+          </div>
+        </aside>
+
+        <section class="panel cake-panel">
+          <div class="panel-title">● Твой торт</div>
+
+          <div class="workshop-tools">
+            <button id="undoButton" type="button">↶ Отменить</button>
+            <button id="writeButton" type="button">✍ Надпись</button>
+          </div>
+
+          <div class="cake-stage">
+            <div id="cakePreview" class="cake-preview"></div>
+            <span class="made-with-love">создано с любовью ♡</span>
+          </div>
+
+          <button id="resetCakeButton" aria-label="Очистить торт" title="Очистить торт" class="reset-cake-button" type="button">
+            Очистить торт
+          </button>
+        </section>
+
+        <section class="panel ingredients-panel">
+          <div class="panel-title">● Выбери ингредиенты</div>
+
+          <div class="category-tabs">
+            <button class="category-tab active" data-category="shape">
+              <span>●</span><small>Форма</small>
+            </button>
+            <button class="category-tab" data-category="size">
+              <span>↗</span><small>Размер</small>
+            </button>
+            <button class="category-tab" data-category="base">
+              <span>▰</span><small>Корж</small>
+            </button>
+            <button class="category-tab" data-category="cream">
+              <span>◒</span><small>Крем</small>
+            </button>
+            <button class="category-tab" data-category="icing">
+              <span>✿</span><small>Глазурь</small>
+            </button>
+            <button class="category-tab" data-category="layers">
+              <span>▤</span><small>Этажи</small>
+            </button>
+            <button class="category-tab" data-category="topping">
+              <span>✦</span><small>Декор</small>
+            </button>
+          </div>
+
+          <div id="ingredientsGrid" class="ingredients-grid" aria-label="Ингредиенты"></div>
+          <p id="unlockMessage" class="unlock-message">✦ Новые ингредиенты открываются с уровнями!</p>
+          <button id="serveButton" class="serve-button" type="button">♡ Подать торт ♡</button>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Окно игры">
+    <div id="modalBackdrop" class="modal-backdrop"></div>
+    <div class="modal-card">
+      <button id="modalClose" aria-label="Закрыть окно" class="modal-close" type="button">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
